@@ -3,7 +3,7 @@ services:
   postfwd:
     image: postfwd/postfwd:stable
     ports:
-      - "10040:10040"
+      - "${POSTFWD_BIND_ADDR}:10040:10040"
     volumes:
       - "${POSTFWD_CONFIG:-./config/postfwd.cf}:/etc/postfwd/postfwd.cf:ro"
     restart: unless-stopped
